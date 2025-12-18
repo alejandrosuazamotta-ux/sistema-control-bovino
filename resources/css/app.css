@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+@layer base {
+    body {
+        font-family: 'Inter', sans-serif;
+        @apply antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+@layer components {
+    /* Animaciones de entrada para elementos */
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Efecto hover mejorado para cards */
+    .card-hover {
+        @apply transition-all duration-300 ease-in-out;
+    }
+    
+    .card-hover:hover {
+        @apply transform -translate-y-1 shadow-saas-lg;
+    }
+    
+    /* Botón con efecto ripple */
+    .btn-ripple {
+        @apply relative overflow-hidden;
+    }
+    
+    .btn-ripple::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    .btn-ripple:active::after {
+        width: 300px;
+        height: 300px;
+    }
+    
+    /* Gradiente animado para fondos */
+    .gradient-animated {
+        background: linear-gradient(-45deg, #1F713E, #4BAE4F, #89C65B, #E8D9C3);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    /* Skeleton loader */
+    .skeleton {
+        @apply bg-gray-200 rounded animate-pulse;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+    }
+    
+    /* Input con efecto focus mejorado */
+    .input-focus {
+        @apply transition-all duration-300;
+    }
+    
+    .input-focus:focus {
+        @apply ring-2 ring-spg-primary ring-opacity-50 border-spg-primary;
+        transform: scale(1.01);
+    }
+    
+    /* Badge con animación */
+    .badge-animated {
+        @apply transition-all duration-300;
+    }
+    
+    .badge-animated:hover {
+        @apply transform scale-105;
+    }
+    
+    /* Tabla con hover suave */
+    .table-row-hover {
+        @apply transition-colors duration-200;
+    }
+    
+    .table-row-hover:hover {
+        @apply bg-spg-beige/30;
+    }
+    
+    /* Card con efecto glassmorphism */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Icono con rotación suave */
+    .icon-rotate {
+        @apply transition-transform duration-300;
+    }
+    
+    .icon-rotate:hover {
+        @apply transform rotate-12;
+    }
+    
+    /* Animación bounce sutil para el logo */
+    .animate-bounce-subtle {
+        animation: bounceSubtle 3s ease-in-out infinite;
+    }
+    
+    @keyframes bounceSubtle {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+}
+
+@layer utilities {
+    /* Utilidades personalizadas */
+    .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .backdrop-blur-saas {
+        backdrop-filter: blur(12px);
+    }
+}
