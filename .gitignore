@@ -21,3 +21,13 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+ # Archivos compilados e instaladores
+*.exe
+*.dll
+*.msi
+*.iss
+
+# Archivos de base de datos local / SQLite (si aplica)
+/database/*.sqlite
+/database/*.sqlite-journal
